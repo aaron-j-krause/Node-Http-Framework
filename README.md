@@ -10,12 +10,13 @@ var framework = require('./framework');
 
 #### framework.start(port)
 
-Starts server on the passed in port.
+Starts server on the passed in port. Checks fileDestinations on start. Will
+throw an error if there is no fileDestination set for a given route.
 
-#### framework.setFileDestination(directory)
+#### framework.setFileDestination(route, directory)
 
-Sets the destination for saved JSON files as the passed in string.
-Defaults to root relative to framework module.
+Sets the destination for saved JSON files of a given route (route) as the
+ passed in string (directory). Will throw an error if directory doesn't exist.
 
 #### framework.get(path, callback)
 
@@ -46,11 +47,6 @@ the callback takes two arguements: request and response.
 
 ### All paths
 
-#### response.send(string)
-
-Sends the response with a default status of 200 and Content-Type
-text/plain
-
 #### response.setStatus(number)
 
 Sets the response status to the passed in number.
@@ -58,6 +54,15 @@ Sets the response status to the passed in number.
 #### response.setContent(string)
 
 Sets the response content type to the passed in string
+
+### Get path methods
+
+#### response.send(request)
+
+If there are params passing in the request will send back the requested
+file. If there are no params it will send back the fileDestination for
+the passed in request. If a string is passed it will send back that request.
+No arguments will send back the string 'request received'.
 
 ### Post path methods
 
