@@ -85,10 +85,11 @@ exist. Sends back the updated JSON with the response.
 
 ### Delete path methods
 
-####response.remove(string)
+####response.remove(request)
 
 Removes the named JSON file (name passed in as a parameter) with the sent JSON.
-Sends back the passed in string with the response.
+Sends back the the file name with a confirmation message if deleted. Will send back
+an error if file doesn't exist.
 
 
 ##Example
@@ -122,10 +123,10 @@ framework.patch('/user', function(request, response){
 //save to 1.json as {"MachoMan":"RandySavage","snapsInto":"SlimJim"}
 });
 
-framework.del('/user'. function(request, response){
-  response.remove('file deleted');
+framework.del('/user', function(request, response){
+  response.remove(request);
 //a DELETE request to localhost:3000/user/1 will remove 1.json. And send back
-//'file deleted'
+//'1.json successfully deleted'
 });
 
 framework.setFileDestination('./fake_data_base');
