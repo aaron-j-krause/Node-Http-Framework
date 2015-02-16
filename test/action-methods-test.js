@@ -31,15 +31,15 @@ describe('Action-methods', function() {
     expect(del.remove).to.be.a('function');
   });
   it('All actions should get methods from all object', function() {
-    expect(get).to.haveOwnProperty('send');
-    expect(get.send).to.be.a('function');
-    expect(post).to.haveOwnProperty('send');
-    expect(post.send).to.be.a('function');
-    expect(put).to.haveOwnProperty('send');
-    expect(put.send).to.be.a('function');
-    expect(patch).to.haveOwnProperty('send');
-    expect(patch.send).to.be.a('function');
-    expect(del).to.haveOwnProperty('send');
-    expect(del.send).to.be.a('function');
+    expect(get).to.haveOwnProperty('setStatus');
+    expect(get.setStatus).to.be.a('function');
+    expect(post).to.haveOwnProperty('setStatus');
+    expect(post.setStatus).to.be.a('function');
+    expect(put).to.haveOwnProperty('setStatus');
+    expect(put.setStatus).to.be.a('function');
+    expect(patch).to.haveOwnProperty('setStatus');
+    expect(patch.setStatus).to.be.a('function');
+    expect(del).to.haveOwnProperty('setStatus');
+    expect(del.setStatus).to.be.a('function');
   });
 });
