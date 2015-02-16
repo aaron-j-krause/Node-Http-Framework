@@ -10,20 +10,23 @@ router.get('/', function(req, res) {
 });
 
 router.get('/waow', function(req, res) {
+  res.setStatus(201);
+  res.setContent('text/plain');
+  console.log(res.contentType, res.status);
   res.send('waow');
 });
 
-router.post('/', function(req, res) {
-  req.on('end', function(){
-    var filePath = './data/test.json';
-    var info = JSON.stringify(req.body);
-    fs.writeFile('./data/test.json', info, function(err){
-      if (err) throw err;
-      res.writeHead(200, {'Content-Type': 'application/json'})
-      res.end(info);
-    })
-  })
+router.post('/users', function(req, res) {
+  res.save(req);
 })
-router.put('/data/test', function(req, res) {
+router.put('/users', function(req, res) {
+  res.save(req);
+})
+
+router.patch('/users', function(req, res) {
+  res.save(req);
+})
+router.del('/users', function(req, res) {
+  res.remove(req);
 })
 server.start(3000);
