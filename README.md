@@ -16,7 +16,8 @@ throw an error if there is no fileDestination set for a given route.
 #### framework.setFileDestination(route, directory)
 
 Sets the destination for saved JSON files of a given route (route) as the
- passed in string (directory). Will throw an error if directory doesn't exist.
+ passed in string (directory). Will create directory if passed in one doesn't
+ exist.
 
 #### framework.get(path, callback)
 
