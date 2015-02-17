@@ -7,6 +7,7 @@ describe('Action-methods', function() {
   var put = {};
   var patch = {};
   var del = {};
+
   before(function() {
     methods.setMethods('GET', get);
     methods.setMethods('POST', post);
@@ -14,22 +15,27 @@ describe('Action-methods', function() {
     methods.setMethods('PATCH', patch);
     methods.setMethods('DELETE', del);
   });
+
   it('POST should get save method', function() {
     expect(post).to.haveOwnProperty('save');
     expect(post.save).to.be.a('function');
   });
+
   it('PUT should get save method', function() {
     expect(put).to.haveOwnProperty('save');
     expect(post.save).to.be.a('function');
   });
+
   it('PATCH should get save method', function() {
     expect(put).to.haveOwnProperty('save');
     expect(post.save).to.be.a('function');
   });
+
   it('DELETE should get remove method', function() {
     expect(del).to.haveOwnProperty('remove');
     expect(del.remove).to.be.a('function');
   });
+
   it('All actions should get methods from all object', function() {
     expect(get).to.haveOwnProperty('setStatus');
     expect(get.setStatus).to.be.a('function');
@@ -42,4 +48,5 @@ describe('Action-methods', function() {
     expect(del).to.haveOwnProperty('setStatus');
     expect(del.setStatus).to.be.a('function');
   });
+
 });
