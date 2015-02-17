@@ -135,7 +135,9 @@ framework.del('/user', function(request, response){
 //'1.json successfully deleted'
 });
 
-framework.setFileDestination('./fake_data_base');
+framework.setFileDestination('/user', 'fake_data_base');
+//sets the user path to save JSON into the fake_data_base directory. Creates
+//directory if it doesn't find one.
 
 framework.start(3000)
 ```
